@@ -1414,14 +1414,34 @@ model AccessKeys {
   /**
    * The current primary key that clients can use to authenticate
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "Retained only for already-published API versions; 2026-09-01 and later expose primaryKey as a secret."
+  @removed(Versions.v2026_09_01)
+  @renamedFrom(Versions.v2026_09_01, "primaryKey")
+  @visibility(Lifecycle.Read)
+  primaryKeyBeforeSecretAnnotation?: string;
+
+  /**
+   * The current primary key that clients can use to authenticate
+   */
+  @added(Versions.v2026_09_01)
+  @secret
   @visibility(Lifecycle.Read)
   primaryKey?: string;
 
   /**
    * The current secondary key that clients can use to authenticate
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "Retained only for already-published API versions; 2026-09-01 and later expose secondaryKey as a secret."
+  @removed(Versions.v2026_09_01)
+  @renamedFrom(Versions.v2026_09_01, "secondaryKey")
+  @visibility(Lifecycle.Read)
+  secondaryKeyBeforeSecretAnnotation?: string;
+
+  /**
+   * The current secondary key that clients can use to authenticate
+   */
+  @added(Versions.v2026_09_01)
+  @secret
   @visibility(Lifecycle.Read)
   secondaryKey?: string;
 }

@@ -2580,13 +2580,17 @@
       "properties": {
         "primaryKey": {
           "type": "string",
+          "format": "password",
           "description": "The current primary key that clients can use to authenticate",
-          "readOnly": true
+          "readOnly": true,
+          "x-ms-secret": true
         },
         "secondaryKey": {
           "type": "string",
+          "format": "password",
           "description": "The current secondary key that clients can use to authenticate",
-          "readOnly": true
+          "readOnly": true,
+          "x-ms-secret": true
         }
       }
     },
